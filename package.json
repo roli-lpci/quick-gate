@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "author": "Hermes Labs <lpcisystems@gmail.com> (https://hermes-labs.ai)",
-  "homepage": "https://lpci.ai",
+  "homepage": "https://hermes-labs.ai",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/roli-lpci/quick-gate-js.git"
