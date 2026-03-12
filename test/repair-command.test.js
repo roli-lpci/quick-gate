@@ -47,7 +47,7 @@ process.exit(0);
   return dir;
 }
 
-function seedFailures(dir, { mode = 'canary', findingGate = 'lint', findingCount = 1 } = {}) {
+function seedFailures(dir, { mode = 'quick', findingGate = 'lint', findingCount = 1 } = {}) {
   const findings = [];
   for (let i = 0; i < findingCount; i++) {
     findings.push({
@@ -314,7 +314,7 @@ test('lighthouse-only findings skip model patch', () => {
   const failures = {
     version: '1.0.0',
     run_id: 'test_run',
-    mode: 'canary',
+    mode: 'quick',
     status: 'fail',
     timestamp: new Date().toISOString(),
     gates: [

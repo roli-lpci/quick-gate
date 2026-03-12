@@ -76,7 +76,7 @@ test('lighthouse parser extracts route + threshold attribution', () => {
   };
 
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config,
     changedFiles: ['app/about/page.tsx'],

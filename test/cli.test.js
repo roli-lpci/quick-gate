@@ -52,7 +52,7 @@ test('run without --mode exits 1', () => {
 });
 
 test('run without --changed-files exits 1', () => {
-  const result = runCli(['run', '--mode', 'canary']);
+  const result = runCli(['run', '--mode', 'quick']);
   assert.equal(result.code, 1);
   assert.ok(result.stderr.includes('--changed-files'));
 });
@@ -60,7 +60,7 @@ test('run without --changed-files exits 1', () => {
 test('run with invalid mode exits 1', () => {
   const result = runCli(['run', '--mode', 'invalid', '--changed-files', '/tmp/test.txt']);
   assert.equal(result.code, 1);
-  assert.ok(result.stderr.includes('--mode canary|full'));
+  assert.ok(result.stderr.includes('--mode quick|full'));
 });
 
 test('summarize without --input exits 1', () => {

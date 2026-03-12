@@ -195,7 +195,7 @@ function runProfile({ workspace, quickGateRepo, outRoot, profile, scenarioCount 
     };
 
     const runRes = run(
-      `node '${path.join(quickGateRepo, 'src', 'cli.js')}' run --mode canary --changed-files changed-files-experiment.txt`,
+      `node '${path.join(quickGateRepo, 'src', 'cli.js')}' run --mode quick --changed-files changed-files-experiment.txt`,
       workspace,
       env,
       900000,

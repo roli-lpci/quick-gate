@@ -25,7 +25,7 @@ jobs:
       - name: Run Quick Gate
         uses: roli-lpci/quick-gate-js/.github/actions/quick-gate@main
         with:
-          mode: canary
+          mode: quick
           repair: "true"
           max-attempts: "2"
           post-comment: "true"

@@ -17,7 +17,7 @@
     "mode": {
       "type": "string",
       "enum": [
-        "canary",
+        "quick",
         "full"
       ]
     },

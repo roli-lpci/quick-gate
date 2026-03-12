@@ -4,9 +4,9 @@ author: Hermes Labs
 
 inputs:
   mode:
-    description: Gate mode -- "canary" (lint + typecheck + lighthouse) or "full" (adds build)
+    description: Gate mode -- "quick" (lint + typecheck + lighthouse) or "full" (adds build)
     required: false
-    default: canary
+    default: quick
   repair:
     description: Run bounded repair after gate failures (deterministic-only in CI, no Ollama required)
     required: false

@@ -13,7 +13,7 @@ Requires **Node.js >= 18** and a project with dependencies installed (`npm ci`).
 
 ```bash
 # From your project directory:
-npx quick-gate run --mode canary --changed-files <path>
+npx quick-gate run --mode quick --changed-files <path>
 
 # Or install globally:
 npm install -g quick-gate
@@ -24,12 +24,12 @@ Create a changed-files list (newline-delimited or JSON array):
 
 ```bash
 echo "app/page.tsx" > /tmp/changed.txt
-quick-gate run --mode canary --changed-files /tmp/changed.txt
+quick-gate run --mode quick --changed-files /tmp/changed.txt
 ```
 
 ## What It Does
 
-Quick Gate runs up to four deterministic quality gates on your project. In **canary** mode (default): lint + typecheck + lighthouse. In **full** mode: all four including build.
+Quick Gate runs up to four deterministic quality gates on your project. In **quick** mode (default): lint + typecheck + lighthouse. In **full** mode: all four including build.
 
 1. **lint** -- runs your ESLint config
 2. **typecheck** -- runs TypeScript compiler
@@ -46,7 +46,7 @@ When gates fail, it produces structured evidence (not just exit codes) and optio
 
 ```bash
 # Run quality gates
-quick-gate run --mode canary|full --changed-files <path>
+quick-gate run --mode quick|full --changed-files <path>
 
 # Generate agent brief from failures
 quick-gate summarize --input .quick-gate/failures.json
@@ -120,7 +120,7 @@ jobs:
       - run: npm ci
       - uses: roli-lpci/quick-gate-js/.github/actions/quick-gate@main
         with:
-          mode: canary
+          mode: quick
           repair: "true"
           post-comment: "true"
 ```

@@ -27,7 +27,7 @@ function usage() {
   console.log(`Quick Gate v${version}
 
 Commands:
-  quick-gate run --mode canary|full --changed-files <path>
+  quick-gate run --mode quick|full --changed-files <path>
   quick-gate summarize --input .quick-gate/failures.json
   quick-gate repair --input .quick-gate/failures.json [--max-attempts 3] [--deterministic-only]
 
@@ -52,8 +52,8 @@ async function main() {
 
   try {
     if (cmd === 'run') {
-      if (!args.mode || !['canary', 'full'].includes(String(args.mode))) {
-        throw new Error('run requires --mode canary|full');
+      if (!args.mode || !['quick', 'canary', 'full'].includes(String(args.mode))) {
+        throw new Error('run requires --mode quick|full');
       }
       if (!args['changed-files']) {
         throw new Error('run requires --changed-files <path>');

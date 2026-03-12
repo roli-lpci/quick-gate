@@ -37,7 +37,7 @@ function defaultConfig(overrides = {}) {
 test('lint gate passes when npm script exits 0', () => {
   const cwd = mkFixture({ lint: 'exit 0', typecheck: 'exit 0', lighthouse: 'exit 0' });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: ['app/page.tsx'],
@@ -55,7 +55,7 @@ test('lint gate fails when npm script exits non-zero', () => {
     lighthouse: 'exit 0',
   });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: ['app/page.tsx'],
@@ -68,7 +68,7 @@ test('lint gate fails when npm script exits non-zero', () => {
   assert.equal(finding.status, 'fail');
 });
 
-test('build gate is skipped in canary mode', () => {
+test('build gate is skipped in quick mode', () => {
   const cwd = mkFixture({
     lint: 'exit 0',
     typecheck: 'exit 0',
@@ -76,7 +76,7 @@ test('build gate is skipped in canary mode', () => {
     lighthouse: 'exit 0',
   });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: [],
@@ -107,7 +107,7 @@ test('build gate runs in full mode', () => {
 test('missing command produces finding', () => {
   const cwd = mkFixture({ typecheck: 'exit 0', lighthouse: 'exit 0' });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: ['app/page.tsx'],
@@ -128,7 +128,7 @@ test('config command overrides package.json script', () => {
   });
   const config = defaultConfig({ commands: { lint: 'exit 0' } });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config,
     changedFiles: [],
@@ -144,7 +144,7 @@ test('typecheck fallback to npx tsc --noEmit when no script', () => {
     lighthouse: 'exit 0',
   });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: [],
@@ -165,7 +165,7 @@ test('lighthouse fallback to exit code finding when no assertion-results', () =>
   });
   // No .lighthouseci/assertion-results.json created
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: [],
@@ -186,7 +186,7 @@ test('traces include all executed commands', () => {
     lighthouse: 'exit 0',
   });
   const result = runDeterministicGates({
-    mode: 'canary',
+    mode: 'quick',
     cwd,
     config: defaultConfig(),
     changedFiles: [],
