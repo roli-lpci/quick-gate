@@ -1,40 +1,24 @@
-# Quick Gate JS
+# quick-gate
 
-> Deterministic quality gate CLI for TypeScript and ESLint projects. Runs lint, typecheck, and test gates with structured JSON output. Bounded auto-repair fixes ESLint issues automatically. Produces machine-readable escalation evidence for AI agents. Node 18+, zero config, Apache 2.0.
+Deterministic JavaScript and TypeScript quality gate CLI.
 
-## Docs
+Use this repo when you need to:
+- combine ESLint, TypeScript, build, and Lighthouse checks into one gate result
+- produce escalation artifacts for CI or agents
+- attempt bounded deterministic repair before handing work off
 
-- [README](https://github.com/roli-lpci/quick-gate-js/blob/main/README.md): Install, commands, configuration, CI integration, escalation schema
-- [CHANGELOG](https://github.com/roli-lpci/quick-gate-js/blob/main/CHANGELOG.md): Version history
-- [CONTRIBUTING](https://github.com/roli-lpci/quick-gate-js/blob/main/CONTRIBUTING.md): Development setup, PR guidelines
+Primary CLI:
+- `quick-gate run --mode quick|full --changed-files <path>`
+- `quick-gate summarize --input <failures.json>`
+- `quick-gate repair --input <failures.json>`
 
-## Commands
+Outputs:
+- failures, run metadata, repair report, escalation, and agent-brief artifacts under `.quick-gate/`
 
-The CLI has three subcommands:
-- `quick-gate run` -- Run quality gates (ESLint + TypeScript + tests), output structured JSON
-- `quick-gate repair` -- Auto-fix lint failures with bounded retry loop
-- `quick-gate summarize` -- Generate agent-readable brief from gate results
+Do not use this repo as:
+- a generic lint dashboard
+- a semantic code-fix engine
+- a replacement for the underlying project tooling
 
-## Core Modules
-
-- [CLI](https://github.com/roli-lpci/quick-gate-js/blob/main/src/cli.js): Argument parsing, subcommand dispatch
-- [Run Command](https://github.com/roli-lpci/quick-gate-js/blob/main/src/run-command.js): Orchestrates gate execution
-- [Repair Command](https://github.com/roli-lpci/quick-gate-js/blob/main/src/repair-command.js): Bounded auto-fix loop
-- [Summarize Command](https://github.com/roli-lpci/quick-gate-js/blob/main/src/summarize-command.js): Agent brief generation
-- [Gates](https://github.com/roli-lpci/quick-gate-js/blob/main/src/gates.js): Gate implementations (ESLint, TypeScript, test runner)
-- [Schema](https://github.com/roli-lpci/quick-gate-js/blob/main/src/schema.js): AJV-based JSON schema validation
-- [Model Adapter](https://github.com/roli-lpci/quick-gate-js/blob/main/src/model-adapter.js): LLM model integration for summarize
-
-## Schemas
-
-- [Failures Schema](https://github.com/roli-lpci/quick-gate-js/blob/main/schemas/failures.schema.json): JSON schema for gate failure output
-- [Agent Brief Schema](https://github.com/roli-lpci/quick-gate-js/blob/main/schemas/agent-brief.schema.json): JSON schema for summarize output
-
-## GitHub Action
-
-- [Action Definition](https://github.com/roli-lpci/quick-gate-js/blob/main/.github/actions/quick-gate/action.yml): Composite GitHub Action for CI integration
-- [Example Workflow](https://github.com/roli-lpci/quick-gate-js/blob/main/.github/workflows/example-usage.yml): Reference CI workflow
-
-## Optional
-
-- [Security Policy](https://github.com/roli-lpci/quick-gate-js/blob/main/SECURITY.md): Vulnerability reporting
+Key success condition:
+- the same gate outputs produce the same normalized artifacts and escalation decisions

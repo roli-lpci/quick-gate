@@ -1,11 +1,47 @@
 # Quick Gate
 
+JavaScript and TypeScript CI failures are noisy, tool-specific, and expensive to triage when ESLint, TypeScript, build steps, and Lighthouse all fail in different ways.
+
+Quick Gate turns those checks into one deterministic JS/TS quality gate with bounded auto-repair and structured escalation evidence.
+
+- "The PR failed, but I have to piece together ESLint, TypeScript, build, and Lighthouse output by hand."
+- "We want fail-fast frontend CI, not another dashboard."
+- "Auto-fix should stop when it stops helping instead of chewing through the repo."
+- "If repair cannot finish, I want a clean escalation artifact that an engineer or agent can actually use."
+
+```bash
+npm install -g quick-gate
+```
+
+```bash
+quick-gate --help
+```
+
+```text
+Quick Gate v0.2.2
+
+Commands:
+  quick-gate run --mode quick|full --changed-files <path>
+  quick-gate summarize --input .quick-gate/failures.json
+  quick-gate repair --input .quick-gate/failures.json [--max-attempts 3] [--deterministic-only]
+```
+
+**When To Use It**
+
+Use Quick Gate when you want one deterministic CI gate over JavaScript or TypeScript project checks, optional bounded repair, and machine-readable escalation artifacts for follow-up work.
+
+**When Not To Use It**
+
+Do not use Quick Gate as a generic lint dashboard, a semantic code-repair engine, or a replacement for your underlying ESLint, TypeScript, build, or Lighthouse setup.
+
+![quick-gate preview](assets/preview.png)
+
 [![npm version](https://img.shields.io/npm/v/quick-gate)](https://www.npmjs.com/package/quick-gate)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Node.js >= 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
 [![CI](https://github.com/roli-lpci/quick-gate-js/actions/workflows/ci.yml/badge.svg)](https://github.com/roli-lpci/quick-gate-js/actions/workflows/ci.yml)
 
-Deterministic quality gate CLI for TypeScript and ESLint projects with bounded auto-repair and explicit escalation evidence. Works with Next.js, React, Vue, Svelte, Angular, or any Node.js project with TypeScript.
+Deterministic quality gate CLI for JavaScript and TypeScript projects with bounded auto-repair and explicit escalation evidence. Works with Next.js, React, Vue, Svelte, Angular, or any Node.js project with TypeScript.
 
 ## Quick Start
 

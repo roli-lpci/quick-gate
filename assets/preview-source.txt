@@ -1,0 +1,8 @@
+$ quick-gate --help
+
+Quick Gate v0.2.2
+
+Commands:
+  quick-gate run --mode quick|full --changed-files <path>
+  quick-gate summarize --input .quick-gate/failures.json
+  quick-gate repair --input .quick-gate/failures.json [--max-attempts 3] [--deterministic-only]
