@@ -9,5 +9,5 @@ All notable changes to this project will be documented in this file.
 - Bounded auto-repair loop with optional LLM-assisted patches via Ollama
 - Machine-readable escalation evidence (`.quick-gate/escalation.json`)
 - Changed-files mode for fast PR feedback
-- Canary and enforce modes
+- `quick` and `full` run modes
 - Broadened from Next.js-only to all TypeScript/ESLint projects

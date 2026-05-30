@@ -1,0 +1,23 @@
+{
+  "title": "quick-gate-js: deterministic JS/TS quality gate with bounded auto-repair",
+  "description": "quick-gate-js is a deterministic JS/TS quality gate that unifies ESLint, TypeScript, build, and Lighthouse checks into one fail-fast result, with bounded auto-repair and structured escalation evidence. Published to npm as the package quick-gate.",
+  "upload_type": "software",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Bosch Rodriguez, Rolando",
+      "orcid": "0009-0005-4896-1112",
+      "affiliation": "Hermes Labs"
+    }
+  ],
+  "keywords": [
+    "quality gate",
+    "ci-cd",
+    "typescript",
+    "eslint",
+    "lighthouse",
+    "evidence-first",
+    "auto-repair",
+    "AI reliability"
+  ]
+}

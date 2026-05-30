@@ -5,7 +5,7 @@
 If you discover a security vulnerability in Quick Gate, please report it
 responsibly by emailing:
 
-**lpcisystems@gmail.com**
+**rbosch@lpci.ai**
 
 Please do **not** open a public GitHub issue for security vulnerabilities.
 
