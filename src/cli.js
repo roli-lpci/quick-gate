@@ -52,7 +52,7 @@ async function main() {
 
   try {
     if (cmd === 'run') {
-      if (!args.mode || !['quick', 'canary', 'full'].includes(String(args.mode))) {
+      if (!args.mode || !['quick', 'full'].includes(String(args.mode))) {
         throw new Error('run requires --mode quick|full');
       }
       if (!args['changed-files']) {
